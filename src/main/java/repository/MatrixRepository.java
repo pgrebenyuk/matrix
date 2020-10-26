@@ -1,6 +1,9 @@
 package repository;
 
+import entity.Matrix;
+
 public interface MatrixRepository {
-    int[][] mixMatrix(int[][] matrix);
-    int[][] initializationMatrix(int size);
+    Matrix mixMatrix(Matrix matrix);
+    Matrix initializationMatrix(int size);
+    void printMatrix(Matrix matrix);
 }
