@@ -3,6 +3,7 @@ package entity;
 public class Matrix {
     private int[][] matrix;
 
+    //не використовується
     public Matrix() {
 
     }
