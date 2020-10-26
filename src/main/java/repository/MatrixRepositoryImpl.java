@@ -5,7 +5,7 @@ import entity.Matrix;
 import java.util.Random;
 
 public class MatrixRepositoryImpl implements MatrixRepository {
-    private static final String[] element = {"дірка", "червоний атом", "синій атом"};
+    private static final String[] ELEMENT = {"дірка", "ч_атом", "с_атом"};
 
     @Override
     public Matrix mixMatrix(Matrix matrix) {
@@ -51,7 +51,7 @@ public class MatrixRepositoryImpl implements MatrixRepository {
         int length = array[0].length;
         for (int i = 0; i < length; i++) {
             for (int j = 0; j < length; j++) {
-                System.out.print(array[i][j] + " ");
+                System.out.print(ELEMENT[array[i][j]] + " ");
             }
             System.out.println();
         }
