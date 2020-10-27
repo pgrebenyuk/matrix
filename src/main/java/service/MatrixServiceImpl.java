@@ -5,6 +5,7 @@ import entity.Matrix;
 import manager.MatrixManager;
 
 public class MatrixServiceImpl implements MatrixService {
+    //чогось по 2 пробіли
     private  MatrixManager matrixManager;
     private  MatrixUser matrixUser;
 
@@ -19,7 +20,9 @@ public class MatrixServiceImpl implements MatrixService {
         int size = matrixUser.sizeMatrix();
         Matrix matrix = matrixManager.initializationMatrix(size);
         matrixManager.printMatrix(matrix);
+        //totalCount
         int numberAll = 0;
+        //mixesCount
         int number = 0;
         do {
             if (number != 0) {
@@ -28,6 +31,7 @@ public class MatrixServiceImpl implements MatrixService {
                 }
                 matrixManager.printMatrix(matrix);
                 numberAll += number;
+                //number - це число, count - це кількість
                 System.out.println("number of mixes: " + numberAll);
             }
             number = matrixUser.numberMixes();
