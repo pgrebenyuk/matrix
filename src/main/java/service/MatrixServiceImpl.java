@@ -1,5 +1,6 @@
 package service;
 
+//папки називають з маленької букви
 import User.InputManager;
 import manager.MatrixManager;
 

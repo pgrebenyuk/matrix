@@ -59,9 +59,16 @@ public class MatrixManagerImpl implements MatrixManager {
 
     @Override
     public Matrix initializationMatrix(int size) {
+        //короче сенс цієї можливості var зводиться не до того, щоб все писати як вар
+        //точніше так можна писати, але тоді падає читабельність коду
         var array = new Atom[size][size];
+        //не використовуй вар всюди
+        //використовуй в форічах і там, де зразу буде зрозуміло, який це тип даних
+        //от тут я не розумію зараз чи і це int, чи long, чи ще щось
+        //короче краще поки взагалі це слово рідко використовувати
         for (var i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
+                //псує читабельність
                 var random = new Random();
                 if (random.nextBoolean()) {
                     array[i][j] = (j > (size / 2)) ? Atom.BLACK : Atom.BLUE;
