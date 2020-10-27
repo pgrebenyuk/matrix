@@ -1,24 +1,20 @@
 package entity;
 
 public class Matrix {
-    private int[][] matrix;
-
-    //не використовується
-    public Matrix() {
-
-    }
+    private Atom[][] matrix;
 
     public Matrix(int size) {
         if (size > 0) {
-            matrix = new int[size][size];
+            matrix = new Atom[size][size];
         }
     }
 
-    public int[][] getMatrix() {
+    public Atom[][] getMatrix() {
         return matrix;
     }
 
-    public void setMatrix(int[][] matrix) {
+    public void setMatrix(Atom[][] matrix) {
         this.matrix = matrix;
     }
 }
+
