@@ -4,8 +4,6 @@ import User.MatrixUser;
 import entity.Matrix;
 import manager.MatrixManager;
 
-import java.util.Scanner;
-
 public class MatrixServiceImpl implements MatrixService {
     private  MatrixManager matrixManager;
     private  MatrixUser matrixUser;
