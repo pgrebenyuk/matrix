@@ -1,7 +1,7 @@
 package service;
 
-//папки називають з маленької букви
-import User.InputManager;
+import entity.Matrix;
+import user.InputManager;
 import manager.MatrixManager;
 
 public class MatrixServiceImpl implements MatrixService {
@@ -16,11 +16,11 @@ public class MatrixServiceImpl implements MatrixService {
 
     @Override
     public void startMatrixShow() {
-        var size = matrixUser.getMatrixSize();
-        var matrix = matrixManager.initializationMatrix(size);
+        int size = matrixUser.getMatrixSize();
+        Matrix matrix = matrixManager.initializationMatrix(size);
         matrixManager.printMatrix(matrix);
-        var totalCount = 0;
-        var mixesCount = 0;
+        int totalCount = 0;
+        int mixesCount = 0;
         do {
             if (mixesCount != 0) {
                 for (var i = 0; i <= mixesCount; i++) {

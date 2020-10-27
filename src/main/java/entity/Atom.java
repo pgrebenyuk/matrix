@@ -6,7 +6,6 @@ public enum Atom {
     BLACK(2);
     private final int number;
 
-    //модифікатор??
     Atom(int number) {
         this.number = number;
     }

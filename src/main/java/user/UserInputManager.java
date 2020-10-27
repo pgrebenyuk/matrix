@@ -1,4 +1,4 @@
-package User;
+package user;
 
 import java.util.Scanner;
 
@@ -13,7 +13,7 @@ public class UserInputManager implements InputManager {
 
     @Override
     public int getMatrixSize() {
-        var size = 0;
+        int size = 0;
         while (size < MIN_SIZE_MATRIX) {
             System.out.println("Enter the length of the matrix ( > 1): ");
             size = scan.nextInt();
