@@ -1,16 +1,17 @@
 package entity;
 
-//елементи з нової стрічки маюь бути
-public enum Atom {HOLE("hole"), BLUE("blue"), BLACK("black");
-    //хочу щоб виводило 0,1,2
-    private final String name;
+public enum Atom {
+    HOLE(0),
+    BLUE(1),
+    BLACK(2);
+    private final int number;
 
-    Atom(String name) {
-        this.name = name;
+    Atom(int number) {
+        this.number = number;
     }
 
     //не використовувалось
-    public String getName(){ return name;}
+    public int getNumber(){ return number;}
 
 }
 
