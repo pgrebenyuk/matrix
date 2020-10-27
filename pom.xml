@@ -13,6 +13,7 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
+<!--                    не стер-->
 <!--                    давай відтепер використовувати 11 джаву, ти ж її поставив?-->
                     <source>11</source>
                     <target>11</target>

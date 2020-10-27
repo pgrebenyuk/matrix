@@ -7,6 +7,7 @@ public class Matrix {
         return matrix;
     }
 
+    //краще вже просто конструктор зробити, який приймає матрицю
     public void setMatrix(Atom[][] matrix) {
         this.matrix = matrix;
     }

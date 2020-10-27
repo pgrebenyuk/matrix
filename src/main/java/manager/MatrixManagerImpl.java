@@ -17,10 +17,12 @@ public class MatrixManagerImpl implements MatrixManager {
         var x = new Random().nextInt(length);
         var y = new Random().nextInt(length);
 
+        //отстойно виглядить в методі, може краще хай буде в класі?
         class Index {
             private int indexI;
             private int indexJ;
 
+            //невикористовується
             public Index() {}
 
             public Index(int indexI, int indexJ) {
@@ -49,6 +51,7 @@ public class MatrixManagerImpl implements MatrixManager {
                     }
 
                     if (list.size() > 0) {
+                        //в даному випадку цей вар навіть мішає мені швидко зрозуміти, що це інт
                         var indexRandom = new Random().nextInt(list.size());
                         array[list.get(indexRandom).getIndexI()][list.get(indexRandom).getIndexJ()] = array[x][y];
                         array[x][y] = Atom.HOLE;
@@ -73,6 +76,7 @@ public class MatrixManagerImpl implements MatrixManager {
                 }
             }
         }
+        //зразу в конструктор
         Matrix matrix = new Matrix();
         matrix.setMatrix(array);
         return matrix;
