@@ -11,12 +11,14 @@ import static entity.Atom.*;
 
 public class MatrixManagerImplTest {
     private MatrixManager matrixManager;
+    //ніхто не використовує
     private Matrix matrix;
     private Atom[][] array;
     private RandomManager random = Mockito.mock(RandomManager.class);
 
     @Before
     public void before() {
+        //не дивишся що пишеш, вдступи лажові, коми, пробіли
         this.array = new Atom[][]{
                 {HOLE, BLACK},
                 {BLUE, HOLE, }};
@@ -27,6 +29,7 @@ public class MatrixManagerImplTest {
 
     @Test
     public void mixMatrix() {
+        //крутий тест, але ні каплі не тестує мікс, от прям взагалі
         Mockito.when(random.getBooleanRandom()).thenReturn(false,true,  true, false);
         Matrix matrixMock = matrixManager.initializationMatrix(2);
         Assert.assertArrayEquals(array, matrixMock.getMatrix());

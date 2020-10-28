@@ -54,6 +54,7 @@ public class MatrixManagerImpl implements MatrixManager {
                 }
             }
 
+            //!list.isEmpty()
             if (list.size() > 0) {
                 array[list.get(randomManager.getIntRandom(0, list.size())).getIndexI()]
                         [list.get(randomManager.getIntRandom(0, list.size())).getIndexJ()] = array[x][y];
