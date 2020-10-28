@@ -44,20 +44,17 @@ public class MatrixManagerImpl implements MatrixManager {
 
         if (array[x][y] != HOLE) {
             List<Index> list = new ArrayList<>();
-            for (int i = Math.max(x - 1, 0); i < Math.min(x + 1, length - 1); i++) {
-                for (int j = Math.max(y - 1, 0); j < Math.min(y + 1, length - 1); j++) {
-                    if (i != x && j != y) {
-                        if (array[i][j] == HOLE) {
-                            list.add(new Index(i, j));
-                        }
+            for (int i = Math.max(x - 1, 0); i < Math.min(x + 1, length); i++) {
+                for (int j = Math.max(y - 1, 0); j < Math.min(y + 1, length); j++) {
+                    if (array[i][j] == HOLE) {
+                        list.add(new Index(i, j));
                     }
                 }
             }
 
-            //!list.isEmpty()
-            if (list.size() > 0) {
-                array[list.get(randomManager.getIntRandom(0, list.size())).getIndexI()]
-                        [list.get(randomManager.getIntRandom(0, list.size())).getIndexJ()] = array[x][y];
+            if (!list.isEmpty()) {
+                var listIndex = list.get(randomManager.getIntRandom(0, list.size()));
+                array[listIndex.getIndexI()][listIndex.getIndexJ()] = array[x][y];
                 array[x][y] = HOLE;
                 return matrix;
             }

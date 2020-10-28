@@ -11,40 +11,55 @@ import static entity.Atom.*;
 
 public class MatrixManagerImplTest {
     private MatrixManager matrixManager;
-    //ніхто не використовує
-    private Matrix matrix;
-    private Atom[][] array;
     private RandomManager random = Mockito.mock(RandomManager.class);
 
     @Before
     public void before() {
-        //не дивишся що пишеш, вдступи лажові, коми, пробіли
-        this.array = new Atom[][]{
-                {HOLE, BLACK},
-                {BLUE, HOLE, }};
-
-        this.matrix = new Matrix(array);
         this.matrixManager = new MatrixManagerImpl(random);
     }
 
     @Test
-    public void mixMatrix() {
-        //крутий тест, але ні каплі не тестує мікс, от прям взагалі
+    public void mixMatrixFindHole() {
+        Atom[][] array = new Atom[][]{
+                {HOLE, BLACK, HOLE},
+                {BLUE, HOLE, BLACK},
+                {BLACK, HOLE, BLACK}};
+        Matrix matrix = new Matrix(array);
+        Mockito.when(random.getIntRandom(0, 2)).thenReturn(0,3);
+        Matrix matrixMock = matrixManager.mixMatrix(matrix);
+        Assert.assertArrayEquals(array, matrixMock.getMatrix());
+    }
+
+    @Test
+    public void mixMatrixFindAtom() {
+        Atom[][] arrayBefore = new Atom[][]{
+                {HOLE, BLACK, HOLE},
+                {BLUE, HOLE, BLACK},
+                {BLACK, HOLE, BLACK}};
+        Atom[][] arrayAfter = new Atom[][]{
+                {HOLE, BLACK, HOLE},
+                {BLUE, BLACK, BLACK},
+                {BLACK, HOLE, HOLE}};
+        Matrix matrix = new Matrix(arrayBefore);
+        Mockito.when(random.getIntRandom(0, 3)).thenReturn(2,2);
+        Mockito.when(random.getIntRandom(0, 2)).thenReturn(0);
+        Matrix matrixMock = matrixManager.mixMatrix(matrix);
+        Assert.assertArrayEquals(arrayAfter, matrixMock.getMatrix());
+    }
+    @Test
+    public void initializationMatrix() {
+        Atom[][] array = new Atom[][]{
+                {HOLE, BLACK},
+                {BLUE, HOLE}};
         Mockito.when(random.getBooleanRandom()).thenReturn(false,true,  true, false);
         Matrix matrixMock = matrixManager.initializationMatrix(2);
         Assert.assertArrayEquals(array, matrixMock.getMatrix());
     }
 
     @Test
-    public void initializationMatrix() {
+    public void initializationMatrixSize() {
         Matrix matrix = matrixManager.initializationMatrix(5);
         Assert.assertEquals(5, matrix.getMatrix().length);
-    }
-
-    @Test
-    public void initializationMatrixFailed() {
-        Matrix matrix = matrixManager.initializationMatrix(5);
-        Assert.assertNotEquals(6, matrix.getMatrix().length );
     }
 
     @Test(expected = IllegalArgumentException.class)
