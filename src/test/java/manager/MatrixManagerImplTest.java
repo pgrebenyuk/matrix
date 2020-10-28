@@ -20,14 +20,18 @@ public class MatrixManagerImplTest {
 
     @Test
     public void mixMatrixFindHole() {
-        Atom[][] array = new Atom[][]{
+        Atom[][] arrayBefore = new Atom[][]{
                 {HOLE, BLACK, HOLE},
                 {BLUE, HOLE, BLACK},
                 {BLACK, HOLE, BLACK}};
-        Matrix matrix = new Matrix(array);
-        Mockito.when(random.getIntRandom(0, 2)).thenReturn(0,3);
-        Matrix matrixMock = matrixManager.mixMatrix(matrix);
-        Assert.assertArrayEquals(array, matrixMock.getMatrix());
+        Atom[][] arrayAfter = new Atom[][]{
+                {HOLE, BLACK, HOLE},
+                {BLUE, HOLE, BLACK},
+                {BLACK, HOLE, BLACK}};
+        Matrix matrixBefore = new Matrix(arrayBefore);
+        Mockito.when(random.getIntRandom(0, 3)).thenReturn(1,1);
+        Mockito.when(random.getIntRandom(0, 2)).thenReturn(0);
+        Assert.assertArrayEquals(arrayAfter, matrixManager.mixMatrix(matrixBefore).getMatrix());
     }
 
     @Test
@@ -40,11 +44,10 @@ public class MatrixManagerImplTest {
                 {HOLE, BLACK, HOLE},
                 {BLUE, BLACK, BLACK},
                 {BLACK, HOLE, HOLE}};
-        Matrix matrix = new Matrix(arrayBefore);
+        Matrix matrixBefore = new Matrix(arrayBefore);
         Mockito.when(random.getIntRandom(0, 3)).thenReturn(2,2);
         Mockito.when(random.getIntRandom(0, 2)).thenReturn(0);
-        Matrix matrixMock = matrixManager.mixMatrix(matrix);
-        Assert.assertArrayEquals(arrayAfter, matrixMock.getMatrix());
+        Assert.assertArrayEquals(arrayAfter, matrixManager.mixMatrix(matrixBefore).getMatrix());
     }
     @Test
     public void initializationMatrix() {
