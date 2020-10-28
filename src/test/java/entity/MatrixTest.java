@@ -13,6 +13,7 @@ public class MatrixTest {
 
     @Before
     public void before() {
+        //відступ перед дужкою
         this.array = new Atom[][]{
                 {HOLE, BLUE, BLACK},
                 {HOLE, BLUE, HOLE},

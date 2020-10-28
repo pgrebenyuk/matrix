@@ -6,6 +6,9 @@ public class UserInputManager implements InputManager {
     private static final int MIN_SIZE_MATRIX = 2;
     private final Scanner scan;
 
+    //на ділі ж передавати такий клас як параметр в конструктор немає сенсу
+    //в нас це просто для тесту
+    //в реальному проекті це просто не буде теститись
     public UserInputManager(Scanner scan) {
         this.scan = scan;
     }
