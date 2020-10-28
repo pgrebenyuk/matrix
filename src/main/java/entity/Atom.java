@@ -10,7 +10,9 @@ public enum Atom {
         this.number = number;
     }
 
-    public int getNumber(){ return number;}
+    public int getNumber() {
+        return number;
+    }
 
 }
 

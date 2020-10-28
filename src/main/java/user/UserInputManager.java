@@ -4,11 +4,10 @@ import java.util.Scanner;
 
 public class UserInputManager implements InputManager {
     private static final int MIN_SIZE_MATRIX = 2;
-
     private final Scanner scan;
 
-    public UserInputManager() {
-        this.scan = new Scanner(System.in);
+    public UserInputManager(Scanner scan) {
+        this.scan = scan;
     }
 
     @Override

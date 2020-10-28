@@ -9,6 +9,7 @@ public class MatrixServiceImpl implements MatrixService {
     private InputManager matrixUser;
 
 
+
     public MatrixServiceImpl(MatrixManager matrixManager, InputManager matrixUser) {
         this.matrixManager = matrixManager;
         this.matrixUser = matrixUser;
