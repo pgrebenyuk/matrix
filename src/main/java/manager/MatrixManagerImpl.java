@@ -11,7 +11,7 @@ import static entity.Atom.*;
 
 public class MatrixManagerImpl implements MatrixManager {
     private static final int MIN_SIZE_MATRIX = 2;
-    private RandomManager randomManager;
+    private final RandomManager randomManager;
 
     public MatrixManagerImpl(RandomManager randomManager) {
         this.randomManager = randomManager;
@@ -44,8 +44,8 @@ public class MatrixManagerImpl implements MatrixManager {
 
         if (array[x][y] != HOLE) {
             List<Index> list = new ArrayList<>();
-            for (int i = Math.max(x - 1, 0); i < Math.min(x + 1, length); i++) {
-                for (int j = Math.max(y - 1, 0); j < Math.min(y + 1, length); j++) {
+            for (int i = Math.max(x - 1, 0); i < Math.min(x + 2, length); i++) {
+                for (int j = Math.max(y - 1, 0); j < Math.min(y + 2, length); j++) {
                     if (array[i][j] == HOLE) {
                         list.add(new Index(i, j));
                     }
@@ -64,10 +64,9 @@ public class MatrixManagerImpl implements MatrixManager {
 
     @Override
     public Matrix initializationMatrix(int size) {
-        if (size < 3)  {
-            throw new IllegalArgumentException("Matrix's size can be > 2!");
+        if (size < MIN_SIZE_MATRIX)  {
+            throw new IllegalArgumentException("Matrix's size can be >= " + MIN_SIZE_MATRIX);
         }
-        size = Math.max(size, MIN_SIZE_MATRIX);
         Atom[][] array = new Atom[size][size];
         for (var i = 0; i < size; i++) {
             for (var j = 0; j < size; j++) {
